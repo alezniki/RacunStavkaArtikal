@@ -16,9 +16,9 @@ public class Stavka {
     private int id;
     @DatabaseField(columnName = POLJE_KOLICINA, canBeNull = false)
     private int kolicina;
-    @DatabaseField(foreign = true, foreignAutoRefresh = true, foreignColumnName = "racun_id")
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "racun_id")
     private Racun racun;
-    @DatabaseField(foreign = true, foreignAutoRefresh = true, foreignColumnName = "artikal_id")
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "artikal_id")
     private Artikal artikal;
 
     public Stavka(){
