@@ -67,19 +67,22 @@ public class Zadatak2DodavanjeBrisanjeIzmenaVrednosti {
             stavkaDao.create(st3);
 
             // Prikaz svih vrednosti iz svih tabela
+            System.out.println("Svi Artikli iz baze: ");
             List<Artikal> listaArtikala = artikalDao.queryForAll();
             for (Artikal art : listaArtikala ) {
-                System.out.println("Svi Artikli: " + art);
+                System.out.println(art);
             }
 
+            System.out.println("Svi Racuni iz baze: ");
             List<Racun> listaRacuna = racunDao.queryForAll();
             for (Racun rn : listaRacuna ) {
-                System.out.println("Svi Racuni: " + rn);
+                System.out.println(rn);
             }
 
+            System.out.println("Sve Stavke iz baze: ");
             List<Stavka> listaStavki = stavkaDao.queryForAll();
             for (Stavka st: listaStavki) {
-                System.out.println("Sve Stavke: " + st);
+                System.out.println(st);
             }
 
             //  2.3.2. Izmena vrednosti
@@ -88,11 +91,31 @@ public class Zadatak2DodavanjeBrisanjeIzmenaVrednosti {
             racunZaImenu.setOznaka("RacunPrvi");
             racunDao.update(racunZaImenu);
 
+            System.out.println("Svi Racuni iz baze posle izmene: ");
             listaRacuna = racunDao.queryForAll();
             for (Racun rn : listaRacuna ) {
-                System.out.println("Svi Racuni posle izmene: " + rn);
+                System.out.println(rn);
             }
 
+            // 2.3.3 Brisanje vrednosti
+
+            Artikal art5 = new Artikal("Voda", "Flasa vode od 1.5L", 70.00);
+            artikalDao.create(art5);
+
+            System.out.println("Svi Artikli iz baze posle dodatog novog artikla: ");
+            listaArtikala = artikalDao.queryForAll();
+            for (Artikal art : listaArtikala) {
+                System.out.println(art);
+            }
+
+            Artikal artikalZaBrisanje = artikalDao.queryForId(art5.getId());
+            artikalDao.delete(artikalZaBrisanje);
+
+            System.out.println("Svi Artikli iz baze posle brisanja novog artikla: ");
+            listaArtikala = artikalDao.queryForAll();
+            for (Artikal art : listaArtikala) {
+                System.out.println(art);
+            }
 
 
         } catch (SQLException e) {
