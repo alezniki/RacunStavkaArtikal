@@ -12,6 +12,7 @@ import model.Stavka;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by dzoni on 4/22/2017.
@@ -64,7 +65,23 @@ public class Zadatak2DodavanjeBrisanjeIzmenaVrednosti {
             stavkaDao.create(st1);
             stavkaDao.create(st2);
             stavkaDao.create(st3);
-            
+
+            // Prikaz svih vrednosti iz svih tabela
+            List<Artikal> listaArtikala = artikalDao.queryForAll();
+            for (Artikal art : listaArtikala ) {
+                System.out.println("Svi Artikli: " + art);
+            }
+
+            List<Racun> listaRacuna = racunDao.queryForAll();
+            for (Racun rn : listaRacuna ) {
+                System.out.println("Svi Racuni: " + rn);
+            }
+
+            List<Stavka> listaStavki = stavkaDao.queryForAll();
+            for (Stavka st: listaStavki) {
+                System.out.println("Sve Stavke: " + st);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
