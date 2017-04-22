@@ -20,10 +20,12 @@ public class Zadatak1KreiranjeTabela {
         try {
             conn = new JdbcConnectionSource("jdbc:sqlite:baza.db");
 
+            // Brisanje tabela
             TableUtils.dropTable(conn, Stavka.class, true);
             TableUtils.dropTable(conn, Artikal.class, true);
             TableUtils.dropTable(conn, Racun.class, true);
 
+            // Kreiranje tabela
             TableUtils.createTable(conn, Artikal.class);
             TableUtils.createTable(conn, Racun.class);
             TableUtils.createTable(conn, Stavka.class);
