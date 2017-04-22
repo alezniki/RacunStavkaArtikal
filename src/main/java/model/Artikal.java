@@ -25,7 +25,7 @@ public class Artikal {
     private double cena;
 
     @ForeignCollectionField(foreignFieldName = "artikal")
-    ForeignCollection<Artikal> stavke;
+    ForeignCollection<Stavka> stavke;
 
     public Artikal(){
 
@@ -69,11 +69,11 @@ public class Artikal {
         this.cena = cena;
     }
 
-    public ForeignCollection<Artikal> getStavke() {
+    public ForeignCollection<Stavka> getStavke() {
         return stavke;
     }
 
-    public void setStavke(ForeignCollection<Artikal> stavke) {
+    public void setStavke(ForeignCollection<Stavka> stavke) {
         this.stavke = stavke;
     }
 
