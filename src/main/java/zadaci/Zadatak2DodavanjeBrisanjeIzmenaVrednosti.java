@@ -82,6 +82,19 @@ public class Zadatak2DodavanjeBrisanjeIzmenaVrednosti {
                 System.out.println("Sve Stavke: " + st);
             }
 
+            //  2.3.2. Izmena vrednosti
+
+            Racun racunZaImenu = racunDao.queryForId(rn1.getId());
+            racunZaImenu.setOznaka("RacunPrvi");
+            racunDao.update(racunZaImenu);
+
+            listaRacuna = racunDao.queryForAll();
+            for (Racun rn : listaRacuna ) {
+                System.out.println("Svi Racuni posle izmene: " + rn);
+            }
+
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
