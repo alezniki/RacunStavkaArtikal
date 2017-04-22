@@ -59,8 +59,8 @@ public class Zadatak2DodavanjeBrisanjeIzmenaVrednosti {
             racunDao.create(rn2);
 
             Stavka st1 = new Stavka(1, art1, rn1);
-            Stavka st2 = new Stavka(1, art2, rn1);
-            Stavka st3 = new Stavka(1, art3, rn2);
+            Stavka st2 = new Stavka(2, art2, rn1);
+            Stavka st3 = new Stavka(3, art3, rn2);
 
             stavkaDao.create(st1);
             stavkaDao.create(st2);

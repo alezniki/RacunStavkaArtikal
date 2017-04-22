@@ -32,8 +32,8 @@ public class Zadatak3BidirekcionaVeza {
             racunDao = DaoManager.createDao(conn, Racun.class);
             stavkaDao = DaoManager.createDao(conn, Stavka.class);
 
-            System.out.println("Svi Racuni iz baze: ");
             List<Racun> listaRacuna = racunDao.queryForAll();
+            System.out.println("Svi Racuni iz baze: ");
             for (Racun rn : listaRacuna){
                 System.out.println(rn);
             }
