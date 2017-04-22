@@ -25,10 +25,10 @@ public class Stavka {
 
     }
 
-    public Stavka(int kolicina, Racun racun, Artikal artikal) {
+    public Stavka(int kolicina, Artikal artikal, Racun racun ) {
         this.kolicina = kolicina;
-        this.racun = racun;
         this.artikal = artikal;
+        this.racun = racun;
     }
 
     public int getId() {
