@@ -67,43 +67,52 @@ public class Zadatak2DodavanjeBrisanjeIzmenaVrednosti {
             stavkaDao.create(st3);
 
             // Prikaz svih vrednosti iz svih tabela
-            System.out.println("Svi Artikli iz baze: ");
+
             List<Artikal> listaArtikala = artikalDao.queryForAll();
+            System.out.println("Svi Artikli iz baze: ");
             for (Artikal art : listaArtikala ) {
                 System.out.println(art);
             }
 
-            System.out.println("Svi Racuni iz baze: ");
             List<Racun> listaRacuna = racunDao.queryForAll();
+            System.out.println("Svi Racuni iz baze: ");
             for (Racun rn : listaRacuna ) {
                 System.out.println(rn);
             }
 
-            System.out.println("Sve Stavke iz baze: ");
+
             List<Stavka> listaStavki = stavkaDao.queryForAll();
+            System.out.println("Sve Stavke iz baze: ");
             for (Stavka st: listaStavki) {
                 System.out.println(st);
             }
 
             //  2.3.2. Izmena vrednosti
 
-            Racun racunZaImenu = racunDao.queryForId(rn1.getId());
-            racunZaImenu.setOznaka("RacunPrvi");
-            racunDao.update(racunZaImenu);
+            Racun racunZaIzmenu = racunDao.queryForId(rn1.getId());
+            racunZaIzmenu.setOznaka("RacunPrvi");
+            racunDao.update(racunZaIzmenu);
 
-            System.out.println("Svi Racuni iz baze posle izmene: ");
+            listaRacuna = racunDao.queryForEq(Racun.POLJE_OZNAKA, "Racun2");
+            Racun racunZaIzmenuDva = listaRacuna.get(0);
+            racunZaIzmenuDva.setOznaka("RacunDrugi");
+            racunDao.update(racunZaIzmenuDva);
+
             listaRacuna = racunDao.queryForAll();
+            System.out.println("Svi Racuni iz baze posle izmene: ");
             for (Racun rn : listaRacuna ) {
                 System.out.println(rn);
             }
+
+
 
             // 2.3.3 Brisanje vrednosti
 
             Artikal art5 = new Artikal("Voda", "Flasa vode od 1.5L", 70.00);
             artikalDao.create(art5);
 
-            System.out.println("Svi Artikli iz baze posle dodatog novog artikla: ");
             listaArtikala = artikalDao.queryForAll();
+            System.out.println("Svi Artikli iz baze posle dodatog novog artikla: ");
             for (Artikal art : listaArtikala) {
                 System.out.println(art);
             }
@@ -111,8 +120,8 @@ public class Zadatak2DodavanjeBrisanjeIzmenaVrednosti {
             Artikal artikalZaBrisanje = artikalDao.queryForId(art5.getId());
             artikalDao.delete(artikalZaBrisanje);
 
-            System.out.println("Svi Artikli iz baze posle brisanja novog artikla: ");
             listaArtikala = artikalDao.queryForAll();
+            System.out.println("Svi Artikli iz baze posle brisanja novog artikla: ");
             for (Artikal art : listaArtikala) {
                 System.out.println(art);
             }
